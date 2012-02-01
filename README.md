@@ -7,22 +7,27 @@ automated installation procedure.
 
 ## Installation
 
-Warning: these instructions assume that Zsh is already installed somewhere in your PATH.
+**Warning: these instructions assume that Zsh is already installed somewhere in your PATH.**
 
 ### Automated installation procedure
 
-Be careful, this is currently untested:
+**Be careful, this is currently untested.**
+
+You can automatically install my Zsh configuration using either wget:
 
     wget --no-check-certificate https://github.com/mtortonesi/dotzsh/raw/master/install/install.sh -O - | sh
 
+or curl:
+
+    curl -L https://github.com/mtortonesi/dotzsh/raw/master/install/install.sh | sh
+
 ### Manual installation procedure
 
-Simple:
+Very, very simple:
 
-    cd $HOME
     git clone https://github.com/mtortonesi/dotzsh.git
-    ln -s dotzsh/.zsh.d  .zsh.d
-    ln -s dotzsh/.zshenv .zshenv
-    ln -s dotzsh/.zshrc  .zshrc
+    ln -s dotzsh/.zsh.d  ~/.zsh.d
+    ln -s dotzsh/.zshenv ~/.zshenv
+    ln -s dotzsh/.zshrc  ~/.zshrc
     chsh -s `which zsh`
 
