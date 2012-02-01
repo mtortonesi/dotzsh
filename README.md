@@ -5,6 +5,10 @@ repository."), changed it to suit my needs (that is, I added support for RVM, co
 [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh "Oh-My-Zsh GitHub repository.")-inspired installation procedure.
 
 
-# Installation procedure
+# Installation
 
-TODO
+## Automated installation procedure
+
+Careful, this is currently untested:
+
+    wget --no-check-certificate https://raw.github.com/mtortonesi/dotzsh/master/install/install.sh -O - | sh

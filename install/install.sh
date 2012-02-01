@@ -1,4 +1,4 @@
-#|/bin/sh
+#!/bin/sh
 
 if [ -d ~/.zsh.d ] || [ -f ~/.zshrc ] || [ -h ~/.zshrc ] || [ -f ~/.zshenv ] || [ -h ~/.zshenv ]
 then
