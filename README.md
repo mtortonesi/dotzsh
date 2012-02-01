@@ -27,5 +27,6 @@ Very, very simple:
 
     git clone https://github.com/mtortonesi/dotzsh.git
     ln -s dotzsh/.zsh.d  ~/.zsh.d
+    ln -s dotzsh/.zshenv ~/.zshenv
     chsh -s `which zsh`
 

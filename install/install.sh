@@ -16,8 +16,9 @@ fi
 echo "\033[0;34mCloning Zsh configuration...\033[0m"
 /usr/bin/env git clone https://github.com/mtortonesi/dotzsh.git dotzsh
 
-echo "\033[0;34mCreating symlink...\033[0m"
-ln -s dotzsh/.zsh.d ~/.zsh.d
+echo "\033[0;34mCreating symlinks...\033[0m"
+ln -s dotzsh/.zsh.d  ~/.zsh.d
+ln -s dotzsh/.zshenv ~/.zshenv
 
 echo "\033[0;34mChanging default shell to Zsh (will require password)...\033[0m"
 chsh -s `which zsh`
