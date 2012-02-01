@@ -1,2 +1,3 @@
 *~
 *.swp
+.zsh.d/.zcompdump

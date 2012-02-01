@@ -14,17 +14,15 @@ then
 fi
 
 echo "\033[0;34mCloning Zsh configuration...\033[0m"
-/usr/bin/env git clone https://github.com/mtortonesi/dotzsh.git ~/dotzsh
+/usr/bin/env git clone https://github.com/mtortonesi/dotzsh.git dotzsh
 
-echo "\033[0;34mCreating symlinks...\033[0m"
-ln -s ~/dotzsh/.zsh.d  .zsh.d
-ln -s ~/dotzsh/.zshenv .zshenv
-ln -s ~/dotzsh/.zshrc  .zshrc
+echo "\033[0;34mCreating symlink...\033[0m"
+ln -s dotzsh/.zsh.d ~/.zsh.d
 
 echo "\033[0;34mChanging default shell to Zsh (will require password)...\033[0m"
 chsh -s `which zsh`
 
-echo "\n \033[0;32mConfiguration installed. Remember to set your PATH in ~/.zsh.d/10_exports.zsh.\033[0m"
+echo "\n \033[0;32mConfiguration installed. (Remember to set your PATH in ~/.zsh.d/10_exports.zsh.)\033[0m"
 
 echo "\n \033[0;32mStarting Zsh.\033[0m"
 /usr/bin/env zsh

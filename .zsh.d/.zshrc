@@ -1,5 +1,4 @@
-# -*- Mode: Shell-script; -*-
-# .zsh.d/.zshrc : Mark Tran <mark@nirv.net>
+# .zsh.d/.zshrc
 
 # Turn extended globbing on
 setopt EXTENDED_GLOB
