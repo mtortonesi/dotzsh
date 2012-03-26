@@ -21,6 +21,7 @@ alias po='popd'
 alias rm='rm -i'
 alias sfv="cksfv -g *.sfv"
 alias sourcerc=". ~/.zsh.d/.zshrc"
+alias mc='. /usr/lib/mc/mc-wrapper.sh'
 
 alias -g A="| ack"
 alias -g L="| less"
