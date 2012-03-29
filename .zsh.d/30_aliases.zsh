@@ -64,3 +64,21 @@ case $UNAME in
     FreeBSD) alias_BSD ;;
     Linux) alias_GNU ;;
 esac
+
+alias cp='cp -vi'
+alias df='df -h'
+alias du='du -h'
+alias mv='mv -vi'
+alias rm='rm -vi'
+alias grep='grep --color=auto'
+alias grepc='grep --color=always'
+# alias fgrep='fgrep --color=auto'
+# alias egrep='egrep --color=auto'
+alias bashdb='bashdb --highlight'
+alias view='vim -R'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+# alias l.='ls -d .* --color=tty'
+# alias ll='ls -lAh --color=tty'
+# alias la='ls -A --color=tty'
+# alias ls='ls --color=tty'
+

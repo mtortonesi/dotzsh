@@ -3,8 +3,8 @@
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats ' %F{magenta}[%f%b%F{magenta}]%c%u%f'
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr ' %F{blue}⚡%f'
-zstyle ':vcs_info:git:*' unstagedstr ' %F{blue}⚡%f'
+zstyle ':vcs_info:git:*' stagedstr ' %B%F{yellow}⚡%f%b'
+zstyle ':vcs_info:git:*' unstagedstr ' %B%F{red}⚡%f%b'
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
