@@ -1,15 +1,15 @@
 # .zsh.d/50_interface.zsh
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats ' %F{magenta}[%f%b%F{magenta}]%c%u%f'
+zstyle ':vcs_info:git:*' formats " %{$fg[magenta]%}[%{$reset_color%}%{$fg_bold[magenta]%}%b%{$reset_color%}%{$fg[magenta]%}]%{$reset_color%}%c%u"
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr ' %B%F{yellow}⚡%f%b'
-zstyle ':vcs_info:git:*' unstagedstr ' %B%F{red}⚡%f%b'
+zstyle ':vcs_info:git:*' stagedstr ' %F{yellow}⚡%f'
+zstyle ':vcs_info:git:*' unstagedstr ' %F{red}⚡%f'
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 
-PS1='%B%F{red}%m%f %F{green}$(rvm_prompt_string)%f%F{cyan}%3~%f%b${vcs_info_msg_0_}%f '
+PS1='%F{red}%m%f %F{cyan}$(rvm_prompt_string)%f%F{white}%3~%f${vcs_info_msg_0_} '
 
 function title {
     local value="${${${(V)1//\%/\%\%}//'\n'/; }//'\t'/ }"
@@ -36,11 +36,11 @@ function preexec { title "$1" }
 
 
 # Begin in -- INSERT -- vi mode
-RPS1="%B%F{yellow}-- INSERT --%f%b"
+RPS1="%F{yellow}-- INSERT --%f"
 
 # Update vi mode
 function zle-line-init zle-keymap-select {
-    RPS1="%B%F{yellow}${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}%f%b"
+    RPS1="%F{yellow}${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}%f"
     RPS2=$RPS1
     zle reset-prompt
 }
