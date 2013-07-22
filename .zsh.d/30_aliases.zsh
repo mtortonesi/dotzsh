@@ -1,33 +1,17 @@
 # .zsh.d/30_aliases.zsh
 
 ls --color -d . &>/dev/null 2>&1 && alias ls='ls -F --color' || alias ls='ls -FG'
-alias _='sudo'
+# alias _='sudo'
 alias -- -='cd -'
 alias ^L='clear'
-alias a="$(whence ack-grep || whence ack) --nocolor"
-alias ack="$(whence ack-grep || whence ack) --nocolor"
-alias awk="$(whence gawk || whence awk)"
 alias d='dirs -v'
-alias c='calc -d'
 alias history='history 0'
 alias j='jobs'
-alias l='ls -la'
 alias l.='ls -d .*'
-alias ll='ls -l'
-alias m='mplayer'
-alias pgrep='pgrep -L'
+alias ll='ls -lh'
+alias la='ls -lah'
 alias pu='pushd'
 alias po='popd'
-alias rm='rm -i'
-alias sfv="cksfv -g *.sfv"
-alias sourcerc=". ~/.zsh.d/.zshrc"
-alias mc='. /usr/lib/mc/mc-wrapper.sh'
-
-alias -g A="| ack"
-alias -g L="| less"
-alias -g X="| xargs"
-alias -g XR="| xargs -n1 unrar x"
-
 alias 1='cd -'
 alias 2='cd +2'
 alias 3='cd +3'
@@ -37,48 +21,59 @@ alias 6='cd +6'
 alias 7='cd +7'
 alias 8='cd +8'
 alias 9='cd +9'
+alias sourcerc=". ~/.zsh.d/.zshrc"
+# alias -g A="| ack"
+# alias -g L="| less"
+# alias -g X="| xargs"
+# alias -g XR="| xargs -n1 unrar x"
+
+# alias for midnight commander
+if [ -f /usr/lib/mc/mc-wrapper.sh ]
+then
+    alias mc='. /usr/lib/mc/mc-wrapper.sh'
+fi
+
+# open HTTP server in the current directory
+alias server='python -m SimpleHTTPServer'
+
+# alias to override less
+alias less=$PAGER
+alias zless=$PAGER
 
 # R
 alias R='R --no-save --no-restore-data --quiet'
 
-# radio streams
-alias bbc="mplayer -cache-min 4 -playlist \
-http://www.bbc.co.uk/worldservice/meta/tx/nb/live_news_au_nb.ram"
-alias kqed="mplayer -cache-min 4 \
-            http://kqed-ice.streamguys.org:80/kqedradio-ew-e1"
-alias ipr="mplayer -cache-min 4 http://voxsc1.somafm.com:8070"
-alias mpr="mplayer -cache-min 4 http://newsstream1.publicradio.org:80/"
-alias npr="mplayer -cache-min 4 http://npr.ic.llnwd.net/stream/npr_live24"
+# default to advanced cp and mv if available
+if test -e /usr/bin/acp
+then
+    alias cp='acp -gvi'
+else
+    alias cp='cp -vi'
+fi
+if test -e /usr/bin/amv
+then
+    alias mv='amv -gvi'
+else
+    alias mv='mv -vi'
+fi
 
-# OS-specific settings
-function alias_BSD() {
-    alias ls="ls -FG"
-}
+# default to ag (the silver searcher) if available
+if test -e /usr/bin/ag
+then
+    alias grep='ag'
+fi
 
-function alias_GNU() {
-    alias ls="ls -F --color"
-}
-
-case $UNAME in
-    Darwin) alias_BSD ;;
-    FreeBSD) alias_BSD ;;
-    Linux) alias_GNU ;;
-esac
-
-alias cp='cp -vi'
+# default to human-friendly output for dd and df
 alias df='df -h'
 alias du='du -h'
-alias mv='mv -vi'
+
+# create today command that returns current date in YYYYMMDD format
+alias today='date +%Y%m%d'
+
+# make rm verbose and ask for confimation before deletion
 alias rm='rm -vi'
-alias grep='grep --color=auto'
-alias grepc='grep --color=always'
-# alias fgrep='fgrep --color=auto'
-# alias egrep='egrep --color=auto'
+
 alias bashdb='bashdb --highlight'
 alias view='vim -R'
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
-# alias l.='ls -d .* --color=tty'
-# alias ll='ls -lAh --color=tty'
-# alias la='ls -A --color=tty'
-# alias ls='ls --color=tty'
 
