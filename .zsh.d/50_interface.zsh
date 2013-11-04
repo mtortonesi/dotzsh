@@ -3,13 +3,13 @@
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats " %{$fg[magenta]%}[%{$reset_color%}%{$fg_bold[magenta]%}%b%{$reset_color%}%{$fg[magenta]%}]%{$reset_color%}%c%u"
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr ' %F{yellow}⚡%f'
-zstyle ':vcs_info:git:*' unstagedstr ' %F{red}⚡%f'
+zstyle ':vcs_info:git:*' stagedstr ' %F{yellow}S%f'
+zstyle ':vcs_info:git:*' unstagedstr ' %F{red}U%f'
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 
-PS1='%F{red}%m%f %F{cyan}$(rvm_prompt_string)%f%F{white}%3~%f${vcs_info_msg_0_} '
+PS1='%F{red}%m%f %F{cyan}$(rvm_prompt_string)%f%F{green}%3~%f${vcs_info_msg_0_} '
 
 function title {
     local value="${${${(V)1//\%/\%\%}//'\n'/; }//'\t'/ }"
