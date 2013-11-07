@@ -30,7 +30,7 @@ function title {
     esac
 }
 
-function chpwd { ls }
+# function chpwd { ls }
 function precmd { vcs_info; title "zsh" "%~" }
 function preexec { title "$1" }
 
