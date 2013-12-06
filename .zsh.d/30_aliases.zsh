@@ -75,5 +75,9 @@ alias rm='rm -vi'
 
 alias bashdb='bashdb --highlight'
 alias view='vim -R'
-alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+
+if [ $(uname) != "Darwin" ]
+then
+  alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+fi
 
