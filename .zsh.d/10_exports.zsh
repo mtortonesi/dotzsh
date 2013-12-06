@@ -41,4 +41,14 @@ then
   PATH="/opt/android-sdk/platform-tools:$PATH"
 fi
 
+# prepend /usr/local/bin to everything else on OSX
+# (we want homebrew's vim to have precedence over system's default obsolete and
+# clipboard-cripped one)
+if [ $(uname) = "Darwin" ]
+then
+  # substitute : -> ' ', remove /usr/local/bin from path, and split into array
+  array=(${=${${PATH//:/ }/\/usr\/local\/bin/}})
+  PATH="/usr/local/bin:${(j.:.)array}"
+fi
+
 export PATH="$HOME/bin:$PATH"
