@@ -27,12 +27,6 @@ alias sourcerc=". ~/.zsh.d/.zshrc"
 # alias -g X="| xargs"
 # alias -g XR="| xargs -n1 unrar x"
 
-# alias for midnight commander
-if [ -f /usr/lib/mc/mc-wrapper.sh ]
-then
-    alias mc='. /usr/lib/mc/mc-wrapper.sh'
-fi
-
 # open HTTP server in the current directory
 alias server='python -m SimpleHTTPServer'
 
