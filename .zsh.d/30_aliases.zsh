@@ -51,12 +51,6 @@ else
     alias mv='mv -vi'
 fi
 
-# default to ag (the silver searcher) if available
-if test -e /usr/bin/ag
-then
-    alias grep='ag'
-fi
-
 # default to human-friendly output for dd and df
 alias df='df -h'
 alias du='du -h'
