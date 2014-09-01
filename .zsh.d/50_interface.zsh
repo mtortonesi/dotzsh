@@ -8,8 +8,13 @@ zstyle ':vcs_info:git:*' unstagedstr ' %F{red}U%f'
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-
-PS1='%F{red}%m%f %F{cyan}$(rvm_prompt_string)%f%F{green}%2~%f${vcs_info_msg_0_} '
+if typeset -f ruby_prompt_string > /dev/null
+then
+  PS1='%F{red}%m%f %F{cyan}$(ruby_prompt_string)%f%F{green}%2~%f${vcs_info_msg_0_} '
+else
+  # no rvm or rbenv installed
+  PS1='%F{red}%m%f %F{green}%2~%f${vcs_info_msg_0_} '
+fi
 
 function title {
     local value="${${${(V)1//\%/\%\%}//'\n'/; }//'\t'/ }"
