@@ -13,16 +13,6 @@ export UNAME="$(uname)"
 export EDITOR='vim'
 export GIT_EDITOR='vim'
 
-# Add RVM to PATH
-if [ -d ~/.rvm/bin ]; then
-  PATH="$PATH:$HOME/.rvm/bin"
-  # Load RVM into a shell session *as a function*
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-elif [ -d ~/.rbenv ]; then
-  PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
 # Search in ~/bin and ~/opt/node.js/bin first, then in PATH
 if [ -d ~/opt/node.js ]
 then
@@ -59,5 +49,16 @@ if [ -d ~/bin ]
 then
   PATH="$HOME/bin:$PATH"
 fi
+
+# Add RVM to PATH
+if [ -d ~/.rvm/bin ]; then
+  PATH="$PATH:$HOME/.rvm/bin"
+  # Load RVM into a shell session *as a function*
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+elif [ -d ~/.rbenv ]; then
+  PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
 
 export PATH
