@@ -3,7 +3,6 @@
 ls --color -d . &>/dev/null 2>&1 && alias ls='ls -F --color' || alias ls='ls -FG'
 # alias _='sudo'
 alias -- -='cd -'
-alias ^L='clear'
 alias d='dirs -v'
 alias history='history 0'
 alias j='jobs'
