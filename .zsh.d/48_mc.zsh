@@ -8,6 +8,6 @@ elif [ -f /usr/local/bin/brew -a -f /usr/local/bin/jq ]; then
     fi
 fi
 
-if [ -n $SOLARIZED -a -f $HOME/.local/share/mc/skins/solarized.ini ]; then
+if [ -n "$SOLARIZED" -a -f $HOME/.local/share/mc/skins/solarized.ini ]; then
     export MC_SKIN=$HOME/.local/share/mc/skins/solarized.ini
 fi
