@@ -38,17 +38,3 @@ function title {
 # function chpwd { ls }
 function precmd { vcs_info; title "zsh" "%~" }
 function preexec { title "$1" }
-
-
-# Begin in -- INSERT -- vi mode
-RPS1="%F{yellow}-- INSERT --%f"
-
-# Update vi mode
-function zle-line-init zle-keymap-select {
-    RPS1="%F{yellow}${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}%f"
-    RPS2=$RPS1
-    zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
