@@ -4,6 +4,10 @@
 bindkey -v
 
 
+# Snappier response to <ESC> key presses (0.1 instead of 0.4 seconds)
+export KEYTIMEOUT=1
+
+
 # Enable support for command line manipulation through external editor
 autoload -z edit-command-line
 zle -N edit-command-line
