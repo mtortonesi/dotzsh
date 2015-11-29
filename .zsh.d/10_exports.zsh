@@ -50,6 +50,12 @@ then
   PATH="/usr/local/bin:${(j.:.)array}"
 fi
 
+# add pdflatex to PATH on OS X
+if [ $(uname) = "Darwin" -a -d /usr/texbin ]
+then
+  PATH="$PATH:/usr/texbin"
+fi
+
 if [ -d ~/bin ]
 then
   PATH="$HOME/bin:$PATH"
