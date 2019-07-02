@@ -71,7 +71,12 @@ then
   eval `perl -I ~/perl5/lib/perl5 -Mlocal::lib`
 fi
 
-# Add RVM to PATH
+# Add RUST stuff to PATH
+if [ -d ~/.cargo/bin ]; then
+  PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# Add RVM or RBENV to PATH
 if [ -d ~/.rvm/bin ]; then
   PATH="$PATH:$HOME/.rvm/bin"
   # Load RVM into a shell session *as a function*
