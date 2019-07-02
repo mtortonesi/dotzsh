@@ -19,6 +19,9 @@ export EDITOR='nvim'
 export GIT_EDITOR='nvim'
 export VISUAL='nvim'
 
+# Auto scale QT applications (fix for HiDPI displays)
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
 # Search in ~/bin and ~/opt/node.js/bin first, then in PATH
 if [ -d ~/opt/node.js ]
 then
