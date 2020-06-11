@@ -76,11 +76,7 @@ if [ -d ~/.cargo/bin ]; then
   PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-# Add RVM or RBENV to PATH
-if [ -d ~/.rvm/bin ]; then
-  PATH="$PATH:$HOME/.rvm/bin"
-  # Load RVM into a shell session *as a function*
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Add RBENV to PATH
 elif [ -d ~/.rbenv ]; then
   PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
