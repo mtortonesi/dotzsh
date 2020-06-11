@@ -1,8 +1,5 @@
 # .zsh.d/10_exports.zsh
 
-export HOST="$(hostname)"
-export HOST="${HOST%%.*}"
-
 if [ -n "$SOLARIZED" ]
 then
   # Generated from https://github.com/huyz/dircolors-solarized (ansi-dark)
@@ -13,8 +10,7 @@ export EXA_COLORS="da=36:sn=35;1:sb=35:uu=38;5;184:gu=38;5;184"
 export READNULLCMD='cat'
 export UNAME="$(uname)"
 
-# Some applications read the EDITOR variable to determine your favourite text
-# editor. So uncomment the line below and enter the editor of your choice :-)
+# Set favourite text editor
 export EDITOR='nvim'
 export GIT_EDITOR='nvim'
 export VISUAL='nvim'
@@ -22,29 +18,17 @@ export VISUAL='nvim'
 # Auto scale QT applications (fix for HiDPI displays)
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
-# Search in ~/bin and ~/opt/node.js/bin first, then in PATH
-if [ -d ~/opt/node.js ]
-then
-  export NODE_PATH="$HOME/opt/node.js"
-  PATH="$NODE_PATH/bin:$PATH"
-fi
-
-if [ -d ~/go ]
-then
-  export GOPATH="$HOME/go"
-fi
-
+# Add Android SDK tools to PATH if needed
 if [ -d /opt/android-sdk/tools ]
 then
   PATH="/opt/android-sdk/tools:$PATH"
 fi
-
 if [ -d /opt/android-sdk/platform-tools ]
 then
   PATH="/opt/android-sdk/platform-tools:$PATH"
 fi
 
-# prepend /usr/local/bin to everything else on OSX
+# Prepend /usr/local/bin to everything else on OSX
 # (we want homebrew's vim to have precedence over system's default obsolete and
 # clipboard-cripped one)
 if [ $(uname) = "Darwin" ]
@@ -54,12 +38,7 @@ then
   PATH="/usr/local/bin:${(j.:.)array}"
 fi
 
-# add pdflatex to PATH on OS X
-if [ $(uname) = "Darwin" -a -d /usr/texbin ]
-then
-  PATH="$PATH:/usr/texbin"
-fi
-
+# Add ~/bin directory to PATH
 if [ -d ~/bin ]
 then
   PATH="$HOME/bin:$PATH"
@@ -71,7 +50,7 @@ then
   eval `perl -I ~/perl5/lib/perl5 -Mlocal::lib`
 fi
 
-# Add RUST stuff to PATH
+# Add Rust stuff to PATH
 if [ -d ~/.cargo/bin ]; then
   PATH="$HOME/.cargo/bin:$PATH"
 fi
