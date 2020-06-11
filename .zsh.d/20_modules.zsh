@@ -1,13 +1,9 @@
 # .zsh.d/20_modules.zsh
 
-autoload -U colors && colors
-autoload -U edit-command-line
-autoload -U url-quote-magic
-
-autoload -U vcs_info
+# Enable zargs, a superior alternative to xargs
 autoload -U zargs
-autoload -U zcalc
-autoload -U zmv
 
-zle -N self-insert url-quote-magic
-zle -N edit-command-line
+# Enable the super powerful zmv file renaming builtin tool
+# autoload -U zmv
+# alias zcp='zmv -C'
+# alias zln='zmv -L'
