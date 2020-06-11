@@ -12,8 +12,8 @@ if [ -n "$SOLARIZED" -a -f $HOME/.local/share/mc/skins/solarized.ini ]; then
     export MC_SKIN=$HOME/.local/share/mc/skins/solarized.ini
 fi
 
-# disable right prompt inside midnight commander
-# (taken from http://www.zsh.org/mla/users/2013/msg00402.html)
-if [[ $+MC_SID = 1 ]] ; then
-    RPROMPT=""
-fi
+## disable right prompt inside midnight commander
+## (taken from http://www.zsh.org/mla/users/2013/msg00402.html)
+#if [[ $+MC_SID = 1 ]] ; then
+#    RPROMPT=""
+#fi
