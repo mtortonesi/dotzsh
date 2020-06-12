@@ -51,7 +51,7 @@ if [ -d ~/.cargo/bin ]; then
 fi
 
 # Add RBENV to PATH
-elif [ -d ~/.rbenv ]; then
+if [ -d ~/.rbenv ]; then
   PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
