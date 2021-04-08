@@ -5,6 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Load personal prompt configuration
+# (to customize prompt, run `p10k configure` or edit ~/.zsh.d/.p10k.zsh.)
+[[ ! -f ~/.zsh.d/.p10k.zsh ]] || source ~/.zsh.d/.p10k.zsh
+
+# Load Powerlevel10k
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
 # .zsh.d/.zshrc
 
 # Turn extended globbing on
@@ -14,8 +21,3 @@ setopt EXTENDED_GLOB
 for file in $ZDOTDIR/??_*~(*disabled|*~); do
   . $file
 done
-
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.zsh.d/.p10k.zsh.
-[[ ! -f ~/.zsh.d/.p10k.zsh ]] || source ~/.zsh.d/.p10k.zsh

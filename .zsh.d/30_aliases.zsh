@@ -7,14 +7,8 @@ ls --color -d . &>/dev/null 2>&1 && alias ls='ls -F --color' || alias ls='ls -FG
 # alias history='history 0'
 # alias j='jobs'
 # alias l.='ls -d .*'
-if [ ! -z $(which exa) ]
-then
-	alias ll='exa -lhg --git'
-	alias la='exa -lhga --git'
-else 
-	alias ll='ls -lh'
-	alias la='ls -lah'
-fi
+alias ll='ls -lh'
+alias la='ls -lah'
 alias pu='pushd'
 alias po='popd'
 alias 1='cd -'
@@ -70,11 +64,6 @@ alias rm='rm -vi'
 
 alias bashdb='bashdb --highlight'
 alias view='vim -R'
-
-if [ $(uname) != "Darwin" ]
-then
-  alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
-fi
 
 # alias for bundle install in vendor/bundle directory
 alias biv='bundle install --path vendor/bundle'

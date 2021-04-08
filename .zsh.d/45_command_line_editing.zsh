@@ -1,5 +1,3 @@
-# .zsh.d/45_bindings.zsh
-
 # Set vi mode
 bindkey -v
 
