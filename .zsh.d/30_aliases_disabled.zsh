@@ -59,11 +59,12 @@ alias du='du -h'
 # create today command that returns current date in YYYYMMDD format
 alias today='date +%Y%m%d'
 
-# make rm verbose and ask for confimation before deletion
-alias rm='rm -vi'
+# ask for confimation before deletion
+alias rm='rm -i'
 
 alias bashdb='bashdb --highlight'
 alias view='vim -R'
 
 # alias for bundle install in vendor/bundle directory
-alias biv='bundle install --path vendor/bundle'
+# alias biv='bundle install --path vendor/bundle'
+alias bsv='bundle config set --local path vendor/bundle'

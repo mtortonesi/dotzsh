@@ -1,4 +1,4 @@
 # Add Rust stuff to PATH
-if [ -d ~/.cargo/bin ]; then
-  PATH="$PATH:$HOME/.cargo/bin"
+if [ -r "${HOME}/.cargo/env" ]; then
+  . "${HOME}/.cargo/env"
 fi

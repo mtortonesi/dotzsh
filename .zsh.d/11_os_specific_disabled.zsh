@@ -11,21 +11,9 @@ then
     export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
     ###########################################################################
-    # Setup ~/opt as a directory where to install miscellaneous utilities (such
-    # as nnn)
+    # Add llvm installation directory to pach (to use clangd for LSP purposes)
     ###########################################################################
-    export PATH="${PATH}:${HOME}/opt/bin"
-    export MANPATH="$(manpath):${HOME}/opt/man"
-
-    # # Prepend /usr/local/bin to everything else on OSX
-    # # (we want homebrew's vim to have precedence over system's default obsolete and
-    # # clipboard-cripped one)
-    # if [ $(uname) = "Darwin" ]
-    # then
-    #   # substitute : -> ' ', remove /usr/local/bin from path, and split into array
-    #   array=(${=${${PATH//:/ }/\/usr\/local\/bin/}})
-    #   PATH="/usr/local/bin:${(j.:.)array}"
-    # fi
+    [[ -x "/usr/local/opt/llvm/bin" ]] && PATH="${PATH}:/usr/local/opt/llvm/bin"
 else
     alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 fi
