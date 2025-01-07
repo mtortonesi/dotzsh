@@ -135,6 +135,12 @@ alias zln='zmv -L'
 # ZSH COMPLETION
 ################################################################################
 
+# Add zsh-completions to FPATH
+if type brew &> /dev/null
+then
+	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+
 # First try the usual completion and, if nothing matches, try to correct and
 # then to approximate
 zstyle ':completion:::::' completer _complete _correct _approximate
@@ -181,17 +187,12 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 # Setup cache for completions
+ZCACHEDIR="$HOME/.zsh/cache"
+zstyle ':completion:*' cache-path $ZCACHEDIR
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh.d/cache
-
-# Add zsh-completions to FPATH
-if type brew &> /dev/null
-then
-	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
 
 # Initialize completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -C -d $ZCACHEDIR/compdump
 
 # Enable fzf-tab plugin
 source "${XDG_DATA_HOME:-${HOME}/.local/share}/fzf-tab/fzf-tab.zsh"
@@ -292,7 +293,6 @@ then
 else
     alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 fi
-
 
 ################################################################################
 # OH MY POSH AND ZOXIDE
